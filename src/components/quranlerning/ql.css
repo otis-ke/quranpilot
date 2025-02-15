@@ -1,0 +1,651 @@
+.study-section {
+    padding: 50px 20px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .study-container {
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    flex-wrap: wrap;
+  }
+  
+  .study-text {
+    flex: 1;
+    max-width: 550px;
+  }
+  
+  .study-text h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1c1c4e;
+    margin-bottom: 20px;
+  }
+  
+  .study-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+  }
+  
+  .study-text em {
+    font-style: italic;
+    font-weight: 600;
+  }
+  
+  .study-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 450px;
+  }
+  
+  .study-image img {
+    width: 100%;
+    max-width: 100%;
+    
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .study-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .study-text {
+      max-width: 100%;
+    }
+  
+    .study-image {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .quran-learning-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .quran-learning-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    gap: 50px;
+  }
+  
+  .quran-learning-images {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .quran-learning-images img {
+    width: 100%;
+    max-width: 450px;
+    
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quran-learning-text {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .quran-learning-text p {
+    margin-bottom: 60px;
+    font-size: 1.25rem;
+  }
+  
+  .quran-learning-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .quran-learning-text a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .quran-learning-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .quran-learning-images {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    .quran-learning-images img {
+      max-width: 300px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+  .practice-section {
+    padding: 40px 20px;
+    background-color: white;
+  }
+  
+  .practice-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 50px;
+  }
+  
+  .practice-text {
+    flex: 1;
+    font-size: 20px;
+    line-height:1.8;
+    
+  }
+  
+  .practice-text h2 {
+    color: #02143a;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .practice-text p {
+    margin-bottom: 15px;
+  }
+  
+  .practice-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .practice-images img {
+    width: 100%;
+    max-width: 430px;
+    
+
+  }
+  
+  @media (max-width: 768px) {
+    .practice-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .practice-images {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  
+    .practice-images img {
+      max-width: 200px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .quran-lessons-section {
+    padding: 40px 20px;
+    background-color: #f5d4d4;
+  }
+  
+  .lessons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 50px;
+  }
+  
+  .lessons-image img {
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .lessons-text {
+    flex: 1;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #333;
+  }
+  
+  .lessons-text p {
+    margin-bottom: 15px;
+  }
+  
+  .start-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .lessons-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .lessons-image img {
+      max-width: 250px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================= */
+/*       HOW TO START SECTION    */
+/* ============================= */
+
+.how-to-start {
+    background-color: #0a3458;
+    color: white;
+    padding: 120px 50px; 
+    text-align: center;
+  }
+  
+  /* =========== HEADER SECTION =========== */
+  .how-to-start h2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .how-to-start p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* =========== MAIN CONTAINER =========== */
+  .start-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: auto;
+    gap: 80px; 
+  }
+  
+  /* =========== TEXT SECTION =========== */
+  .start-text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  /* HEADER - Click The Button */
+  .start-text h3 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 20px;
+  }
+  
+  /* Cost Information */
+  .cost-info {
+    font-size: 20px;
+  
+    color: #ffffff;
+    padding: 15px;
+ 
+    display: inline-block;
+    margin: 15px 0;
+  }
+  
+  /* Subtitle */
+  .start-text h4 {
+    font-size: 26px;
+    font-weight: 500;
+    color: #b2dffc;
+    margin-bottom: 15px;
+  }
+  
+  /* Main Title */
+  .quran-pilot {
+    font-size: 38px;
+    font-weight: 500px;
+    color: #32cd32;
+  }
+  
+  /* =========== BUTTON =========== */
+  .start-button {
+    background-color: #2f7ef5;
+    color: white;
+    padding: 20px 45px;
+    font-size: 22px;
+    font-weight: 300px;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-top: 25px;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .start-button:hover {
+    background-color: #1e5db3;
+  }
+  
+  /* =========== NOT READY SECTION =========== */
+  .not-ready {
+    font-size: 15px;
+    color: #cccccc;
+    margin-top: 50px;
+    
+  }
+  
+  /* Free Lessons Link */
+  .free-lessons {
+    color: #8ecae6;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .free-lessons span {
+    color: #ffcc00;
+    font-weight: bold;
+  }
+  
+  /* =========== IMAGE SECTION =========== */
+  .start-image {
+    text-align: center;
+    flex: 1;
+  }
+  
+  /* Price Text */
+  .start-image h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 20px;
+  }
+  
+  /* Quran Image */
+  .start-image img {
+    width: 600px;
+    max-width: 100%;
+    margin-top: 30px;
+    border-radius: 20px;
+  }
+  
+  /* ============================= */
+  /*        RESPONSIVENESS         */
+  /* ============================= */
+  
+  /* TABLETS */
+  @media (max-width: 1024px) {
+    .start-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .start-text {
+      text-align: center;
+    }
+  
+    .start-text h3 {
+      font-size: 32px;
+    }
+  
+    .cost-info {
+      font-size: 26px;
+    }
+  
+    .quran-pilot {
+      font-size: 36px;
+    }
+  
+    .start-button {
+      font-size: 20px;
+      padding: 16px 40px;
+    }
+  
+    .start-image h2 {
+      font-size: 40px;
+    }
+  
+    .start-image img {
+      width: 400px;
+    }
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .how-to-start {
+      padding: 80px 20px;
+    }
+  
+    .how-to-start h2 {
+      font-size: 36px;
+    }
+  
+    .start-text h3 {
+      font-size: 28px;
+    }
+  
+    .cost-info {
+      font-size: 24px;
+    }
+  
+    .start-text h4 {
+      font-size: 20px;
+    }
+  
+    .quran-pilot {
+      font-size: 32px;
+    }
+  
+    .start-button {
+      font-size: 18px;
+      padding: 14px 30px;
+    }
+  
+    .start-image h2 {
+      font-size: 36px;
+    }
+  
+    .start-image img {
+      width: 300px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+  /* ============================= */
+/*         FOOTER SECTION        */
+/* ============================= */
+
+.footer {
+    background-color: #000;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+  
+  /* Footer Links Section */
+  .footer-links {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+  }
+  
+  .footer-links h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin: 10px 0;
+  }
+  
+  .footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Social Media */
+  .footer-social {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+  }
+  
+  .footer-social h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    background-color: #111;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  .footer-bottom p {
+    font-size: 16px;
+    color: #ccc;
+  }
+  
+  /* ============================= */
+  /*        RESPONSIVENESS         */
+  /* ============================= */
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  

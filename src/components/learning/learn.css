@@ -1,0 +1,159 @@
+/* Make sure the section spans full width */
+.quran-learning-container {
+    width: 100%;
+  }
+  /* ============================= */
+/*         VIDEO SECTION         */
+/* ============================= */
+
+.video-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 60px;
+  max-width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Video Wrapper */
+.video-wrapper {
+  flex: 1;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper iframe {
+  width: 600px;
+  max-width: 600px;
+  height: 350px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Section */
+.video-text {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+}
+
+.video-text h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1f2a44;
+}
+
+.video-text p {
+  font-size: 20px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/*        RESPONSIVENESS         */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  .video-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    max-width: 500px;
+    height: 200px;
+  }
+
+  .video-text {
+    max-width: 90%;
+  }
+
+  .video-text h2 {
+    font-size: 28px;
+  }
+
+  .video-text p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-section {
+    padding: 40px;
+  }
+
+  .video-wrapper iframe {
+    width: 450px;
+    height: 200px;
+  }
+
+  .video-text h2 {
+    font-size: 24px;
+  }
+
+  .video-text p {
+    font-size: 16px;
+  }
+}
+
+  
+  /* Makhraj Section - Full Width */
+  .makhraj-section {
+    display: flex;
+    background-color: #0f1c1c;
+    color: white;
+    padding: 60px;
+    width: 100%;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .makhraj-text {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .makhraj-text h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .makhraj-text p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  
+  .makhraj-image {
+    flex: 1;
+  }
+  
+  .makhraj-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Make sure it looks great on mobile */
+  @media (max-width: 900px) {
+    .video-section, .makhraj-section {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+  
+    .video-wrapper iframe {
+      height: 250px;
+    }
+  
+    .makhraj-text, .video-text {
+      max-width: 100%;
+    }
+  }
+  
