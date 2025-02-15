@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/quranpilot/static/css/main.5927881f.css",
+    "main.js": "/quranpilot/static/js/main.de499e46.js",
+    "static/js/453.6f4c6942.chunk.js": "/quranpilot/static/js/453.6f4c6942.chunk.js",
+    "static/media/mosque2.jpg": "/quranpilot/static/media/mosque2.df16ca86c1943d5131af.jpg",
+    "static/media/Quran.webp": "/quranpilot/static/media/Quran.0dc499217ab0d70c457a.webp",
+    "static/media/tajweed.webp": "/quranpilot/static/media/tajweed.7886b689e2b1687a4587.webp",
+    "static/media/qaidahpage1.webp": "/quranpilot/static/media/qaidahpage1.f8643cd83aa2655f8570.webp",
+    "static/media/makraj.webp": "/quranpilot/static/media/makraj.6c74e5c94679862d7494.webp",
+    "static/media/tajweed2.webp": "/quranpilot/static/media/tajweed2.3f45a67510597501874a.webp",
+    "static/media/ownpace.webp": "/quranpilot/static/media/ownpace.97c00cc6b4ce53ac5d2c.webp",
+    "static/media/teaching1.webp": "/quranpilot/static/media/teaching1.bf35e963cf7436fc4ea6.webp",
+    "static/media/Qp-logo.webp": "/quranpilot/static/media/Qp-logo.0b967c5617e3934139c1.webp",
+    "static/media/listeningonline2.webp": "/quranpilot/static/media/listeningonline2.e73e51bf6779a23565bf.webp",
+    "static/media/record1-scaled.webp": "/quranpilot/static/media/record1-scaled.bba70776206d9a14e539.webp",
+    "static/media/record3.webp": "/quranpilot/static/media/record3.be3c1cbf5df672488f5b.webp",
+    "static/media/withteacher.webp": "/quranpilot/static/media/withteacher.8007869e94620d94ddae.webp",
+    "static/media/listeningonline.webp": "/quranpilot/static/media/listeningonline.aa2786fed53fc9535df1.webp",
+    "static/media/Quran2.webp": "/quranpilot/static/media/Quran2.b1f66d9434a3f289263d.webp",
+    "static/media/makhraj2.webp": "/quranpilot/static/media/makhraj2.8cdf8a15ac10734a84f9.webp",
+    "static/media/record2.webp": "/quranpilot/static/media/record2.397910e86c2405b13f0e.webp",
+    "static/media/words01.webp": "/quranpilot/static/media/words01.a81cbbe2f98d333ac63c.webp",
+    "static/media/record4.webp": "/quranpilot/static/media/record4.baa56174d3eaef17da8e.webp",
+    "index.html": "/quranpilot/index.html",
+    "main.5927881f.css.map": "/quranpilot/static/css/main.5927881f.css.map",
+    "main.de499e46.js.map": "/quranpilot/static/js/main.de499e46.js.map",
+    "453.6f4c6942.chunk.js.map": "/quranpilot/static/js/453.6f4c6942.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5927881f.css",
+    "static/js/main.de499e46.js"
+  ]
+}
