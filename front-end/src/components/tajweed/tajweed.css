@@ -1,0 +1,108 @@
+.tajweed-section {
+    background-color: #f8fcf8;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Main Container */
+.tajweed-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Image Section */
+.tajweed-image {
+    width: 55%;
+}
+
+/* Text Content */
+.tajweed-content {
+    width: 50%;
+}
+
+.tajweed-content h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #1e1e1e;
+}
+
+.tajweed-content p {
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    line-height: 1.6;
+}
+
+/* Learn Button */
+.learn-btn {
+    background-color: #4c82f7;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.learn-btn:hover {
+    background-color: #932fd6;
+}
+
+/* Responsive for Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .tajweed-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .tajweed-image {
+        width: 80%;
+    }
+
+    .tajweed-content {
+        width: 90%;
+    }
+
+    .tajweed-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .tajweed-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive for Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .tajweed-container {
+        padding: 0 15px;
+    }
+
+    .tajweed-image {
+        width: 100%;
+    }
+
+    .tajweed-content {
+        width: 100%;
+    }
+
+    .tajweed-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .tajweed-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .learn-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}

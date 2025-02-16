@@ -1,0 +1,29 @@
+/* App.css */
+
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+/* Define CSS variables for light and dark modes */
+:root {
+   font-family: "Noto Serif", serif;
+  --text-color: black; /* Light mode text color */
+  --background-color: white; /* Light mode background color */
+  --heading-color: black; /* Light mode heading color */
+  --paragraph-color: black; /* Light mode paragraph color */
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  --text-color: white; /* Dark mode text color */
+  --background-color: black; /* Dark mode background color */
+  --heading-color: white; /* Dark mode heading color */
+  --paragraph-color: white; /* Dark mode paragraph color */
+}

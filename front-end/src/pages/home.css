@@ -1,0 +1,32 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Ensure full-screen sections */
+
+  
+  /* Header Styling */
+  
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    section {
+      padding: 10px;
+    }
+  }
+  
+  /* Hide scrollbars */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
