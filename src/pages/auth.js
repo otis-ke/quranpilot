@@ -1,8 +1,11 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  };
+  apiKey: "AIzaSyD6xgrttBIm9vw07xRltKsqHZNpS1jJ8xw",
+  authDomain: "taistat-f0e1d.firebaseapp.com",
+  projectId: "taistat-f0e1d",
+  storageBucket: "taistat-f0e1d.firebasestorage.app",
+  messagingSenderId: "196742294604",
+  appId: "1:196742294604:web:715fe57bf6471221b898e9"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
