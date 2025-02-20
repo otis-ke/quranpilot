@@ -20,7 +20,6 @@ const firebaseConfig = {
   appId: "1:196742294604:web:715fe57bf6471221b898e9"
 };
 
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -31,7 +30,6 @@ const ReactRecorder = () => {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState(null);
 
-  // Load user data from local storage
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData) {
@@ -39,40 +37,58 @@ const ReactRecorder = () => {
     }
   }, []);
 
-  // Fetch messages only for the logged-in user
   useEffect(() => {
     if (!user) return;
-
     const unsubscribe = onSnapshot(
       collection(db, `users/${user.email}/messages`),
       (snapshot) => {
         const msgs = snapshot.docs
           .map((doc) => ({ id: doc.id, ...doc.data() }))
           .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-
         setMessages(msgs);
       }
     );
-
     return () => unsubscribe();
   }, [user]);
 
-  // When recording stops
   const onStop = (recordedBlob) => {
-    setRecordBlob(recordedBlob.blobURL);
+    setRecordBlob(recordedBlob.blob);
   };
 
-  // Send message to Firestore
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("upload_preset", "quranpilot");
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("https://api.cloudinary.com/v1_1/dwlasndqv/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (response.ok) return data.secure_url;
+      throw new Error(data.error?.message || "Upload failed");
+    } catch (error) {
+      console.error("Cloudinary Upload Error:", error);
+      return null;
+    }
+  };
+
   const handleSend = async () => {
     if (!user) {
       alert("User data not found. Please log in again.");
       return;
     }
 
-    if (textMessage || recordBlob) {
+    let audioUrl = null;
+    if (recordBlob) {
+      audioUrl = await uploadToCloudinary(recordBlob);
+    }
+
+    if (textMessage || audioUrl) {
       await addDoc(collection(db, `users/${user.email}/messages`), {
         text: textMessage,
-        audio: recordBlob,
+        audio: audioUrl,
         senderName: `${user.firstName} ${user.lastName}`,
         senderEmail: user.email,
         timestamp: new Date().toISOString(),
@@ -83,88 +99,42 @@ const ReactRecorder = () => {
     }
   };
 
-  // Delete message from Firestore
   const handleDelete = async (id) => {
     if (!user) return;
     await deleteDoc(doc(db, `users/${user.email}/messages`, id));
   };
 
-  // Format timestamp for display
-  const formatTimestamp = (timestamp) => {
-    if (!timestamp) return "";
-    const date = new Date(timestamp);
-    return date.toLocaleString();
-  };
-
   return (
     <div style={styles.chatContainer}>
-      <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
-        Chat & Voice Messages with Tutor
-      </h3>
-
-      {/* Messages Section */}
+      <h3>Chat & Voice Messages with Tutor</h3>
       <div style={styles.messages}>
         {messages.map((msg) => (
-          <div
-            key={msg.id}
-            style={{
-              ...styles.message,
-              alignSelf: msg.senderEmail === user?.email ? "flex-end" : "flex-start",
-              background: msg.senderEmail === user?.email ? "#007bff" : "#eee",
-              color: msg.senderEmail === user?.email ? "#fff" : "#333",
-            }}
-          >
-            <p style={{ fontWeight: "bold", margin: "0" }}>{msg.senderName}</p>
-            <p style={styles.timestamp}>{formatTimestamp(msg.timestamp)}</p>
+          <div key={msg.id} style={styles.message}>
+            <p><strong>{msg.senderName}</strong></p>
+            <p style={styles.timestamp}>{new Date(msg.timestamp).toLocaleString()}</p>
             <p style={styles.messageText}>{msg.text}</p>
-            {msg.audio && (
-              <audio controls src={msg.audio} style={styles.audioPlayer} />
-            )}
-            <button style={styles.deleteButton} onClick={() => handleDelete(msg.id)}>
-              <FaTrash />
-            </button>
+            {msg.audio && <audio controls src={msg.audio} style={styles.audioPlayer} />}
+            <button onClick={() => handleDelete(msg.id)} style={styles.deleteButton}><FaTrash /></button>
           </div>
         ))}
       </div>
-
-      {/* Input & Recording Section */}
-      <div style={styles.inputContainer}>
-        <textarea
-          placeholder="Type a message..."
-          value={textMessage}
-          onChange={(e) => setTextMessage(e.target.value)}
-          style={styles.textArea}
-        />
-
-        <button onClick={() => setIsRecording(!isRecording)} style={styles.recordButton}>
-          <FaMicrophone /> {isRecording ? "Stop Recording" : "Start Recording"}
-        </button>
-
-        <ReactMic
-          record={isRecording}
-          onStop={onStop}
-          className="recorder"
-          mimeType="audio/webm"
-        />
-
-        {recordBlob && (
-          <div style={styles.audioPreview}>
-            <p>Audio Preview:</p>
-            <audio controls src={recordBlob} style={styles.audioPlayer} />
-            <button style={styles.dismissButton} onClick={() => setRecordBlob(null)}>
-              <FaTrash />
-            </button>
-          </div>
-        )}
-
-        <button onClick={handleSend} style={styles.sendButton}>
-          Send <FaPaperPlane />
-        </button>
-      </div>
+      <textarea
+        placeholder="Type a message..."
+        value={textMessage}
+        onChange={(e) => setTextMessage(e.target.value)}
+        style={styles.textArea}
+      />
+      <button onClick={() => setIsRecording(!isRecording)} style={styles.recordButton}>
+        <FaMicrophone /> {isRecording ? "Stop" : "Record"}
+      </button>
+      <ReactMic record={isRecording} onStop={onStop} mimeType="audio/webm" />
+      {recordBlob && (
+        <audio controls src={URL.createObjectURL(recordBlob)} style={styles.audioPlayer} />
+      )}
+      <button onClick={handleSend} style={styles.sendButton}><FaPaperPlane /> Send</button>
     </div>
   );
 };
-
 
 const styles = {
   chatContainer: {
@@ -180,96 +150,42 @@ const styles = {
     flexDirection: "column",
     gap: "10px",
     marginBottom: "20px",
-    wordWrap: "break-word",
   },
-  message: {
+  messageText: {
     padding: "10px",
+    background: "linear-gradient(135deg, #1e3c72, #2a5298)",
     borderRadius: "8px",
-    maxWidth: "85%",
-    wordWrap: "break-word",
+    color: "#fff",
   },
   timestamp: {
     fontSize: "12px",
-    color: "#fff", // Timestamp text set to white
-    margin: "2px 0",
-   
-  },
-  messageText: {
-    wordWrap: "break-word",
-    margin: "5px 0",
-    padding:"10px",
-    background: "linear-gradient(135deg, #1e3c72, #2a5298)",
-    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-    borderRadius:"8px",
-  },
-  inputContainer: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
+    color: "#666",
   },
   textArea: {
-    padding: "10px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-    resize: "none",
     width: "100%",
     minHeight: "80px",
-    boxSizing: "border-box",
+    borderRadius: "8px",
+    padding: "10px",
   },
   sendButton: {
-    padding: "10px",
-    borderRadius: "20px",
-    border: "none",
     background: "linear-gradient(90deg, #ff7eb3, #ff758c)",
     color: "#fff",
-    fontSize: "16px",
-    cursor: "pointer",
-    transition: "0.3s",
-  },
-  recordButton: {
     padding: "10px",
     borderRadius: "20px",
-    border: "none",
+    cursor: "pointer",
+  },
+  recordButton: {
     background: "linear-gradient(90deg, #7ed56f, #28b485)",
     color: "#fff",
-    fontSize: "16px",
+    padding: "10px",
+    borderRadius: "20px",
     cursor: "pointer",
-    transition: "0.3s",
-  },
-  dismissButton: {
-    padding: "5px",
-    borderRadius: "50%",
-    border: "none",
-    background: "#ff4d4d",
-    color: "#fff",
-    fontSize: "14px",
-    cursor: "pointer",
-    marginLeft: "10px",
   },
   deleteButton: {
+    background: "#ff4d4d",
+    color: "white",
     padding: "5px",
     borderRadius: "5px",
-    border: "none",
-    background: " #2a5298)",
-    color: "red",
-    fontSize: "12px",
-    cursor: "pointer",
-    marginTop: "5px",
-    alignSelf: "right",
-  },
-  audioPreview: {
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    background: "#eee",
-    padding: "10px",
-    borderRadius: "8px",
-    flexWrap: "wrap",
-  },
-  audioPlayer: {
-    width: "100%",
-    borderRadius: "8px",
-    background: "#f1f1f1",
   },
 };
 
