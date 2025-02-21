@@ -10,6 +10,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+import './record.css'
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6xgrttBIm9vw07xRltKsqHZNpS1jJ8xw",
@@ -17,7 +18,7 @@ const firebaseConfig = {
   projectId: "taistat-f0e1d",
   storageBucket: "taistat-f0e1d.firebasestorage.app",
   messagingSenderId: "196742294604",
-  appId: "1:196742294604:web:715fe57bf6471221b898e9"
+  appId: "1:196742294604:web:715fe57bf6471221b898e9",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -127,7 +128,12 @@ const ReactRecorder = () => {
       <button onClick={() => setIsRecording(!isRecording)} style={styles.recordButton}>
         <FaMicrophone /> {isRecording ? "Stop" : "Record"}
       </button>
-      <ReactMic record={isRecording} onStop={onStop} mimeType="audio/webm" />
+      <ReactMic
+        record={isRecording}
+        onStop={onStop}
+        mimeType="audio/webm"
+        style={styles.reactMic}
+      />
       {recordBlob && (
         <audio controls src={URL.createObjectURL(recordBlob)} style={styles.audioPlayer} />
       )}
@@ -141,25 +147,34 @@ const styles = {
     maxWidth: "500px",
     margin: "auto",
     padding: "20px",
-    background: "#f8f9fa",
+    background: "linear-gradient(135deg, #84fab0, #8fd3f4)", // Gradient background
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+    overflow: "hidden", // Ensures children stay inside container
   },
   messages: {
     display: "flex",
+    borderRadius: "8px",
+    
     flexDirection: "column",
-    gap: "10px",
-    marginBottom: "20px",
+    gap: "20px",
+    marginBottom: "20px"
+    
+   
   },
   messageText: {
     padding: "10px",
-    background: "linear-gradient(135deg, #1e3c72, #2a5298)",
+    background: "linear-gradient(135deg,rgb(0, 48, 18),hsl(241, 83.90%, 24.30%))", // Matching gradient
     borderRadius: "8px",
-    color: "#fff",
+    color: "white",
   },
   timestamp: {
     fontSize: "12px",
-    color: "#666",
+    color: "#fff",
+    padding: "2px 6px",
+    backgroundColor: "#333", // Dark background to differentiate timestamp
+    borderRadius: "5px",
+    display: "inline-block",
   },
   textArea: {
     width: "100%",
@@ -186,6 +201,15 @@ const styles = {
     color: "white",
     padding: "5px",
     borderRadius: "5px",
+  },
+  reactMic: {
+    width: "100%", // Ensures it fits within the container
+    maxHeight: "100px", // Prevents overflow on small devices
+    overflow: "hidden",
+  },
+  audioPlayer: {
+    width: "100%",
+    marginTop: "10px",
   },
 };
 

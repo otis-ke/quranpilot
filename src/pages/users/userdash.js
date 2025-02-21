@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaBars, FaTimes, FaSignOutAlt, FaBook, FaHome } from "react-icons/fa";
 import "./user.css";
 import ReactRecorder from "../../components/ReactRecorder";
-import logo from '../../components/assets/Qp-logo.webp'
+import logo from "../../components/assets/Qp-logo.webp";
 
-function Userdash() {
+function UserDashboard() {
   const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [greeting, setGreeting] = useState("");
 
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userInitial = userData?.firstName?.charAt(0).toUpperCase() || "?";
 
-  // Move logoutUser above useEffect and wrap it with useCallback
   const logoutUser = useCallback(() => {
     localStorage.removeItem("loggedInUserId");
     localStorage.removeItem("userData");
@@ -20,26 +20,6 @@ function Userdash() {
   }, [navigate]);
 
   useEffect(() => {
-    const handleBackButton = (event) => {
-      event.preventDefault();
-      const confirmLogout = window.confirm("Are you sure you want to log out?");
-      if (confirmLogout) {
-        logoutUser();
-      } else {
-        window.history.pushState(null, null, window.location.pathname);
-      }
-    };
-
-    window.addEventListener("popstate", handleBackButton);
-    window.history.pushState(null, null, window.location.pathname);
-
-    return () => {
-      window.removeEventListener("popstate", handleBackButton);
-    };
-  }, [logoutUser]); // Now logoutUser is stable
-
-  useEffect(() => {
-    // Set greeting based on time
     const hour = new Date().getHours();
     if (hour < 12) {
       setGreeting("Good Morning");
@@ -52,60 +32,43 @@ function Userdash() {
 
   return (
     <div className="dashboard-container">
-      {/* Header */}
-      <header className="dashboard-header">
-        {/* Left: Profile Circle */}
-        <div className="profile-circle" onClick={() => setMenuOpen(!menuOpen)}>
-          {userInitial}
+      <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+        <button className="close-btn" onClick={() => setSidebarOpen(false)}>
+          <FaTimes />
+        </button>
+        <div className="sidebar-profile">
+          <div className="profile-circle">{userInitial}</div>
+          <p>{userData?.firstName} {userData?.lastName}</p>
+          <p className="email">{userData?.email}</p>
+        </div>
+        <nav className="sidebar-nav">
+          <button onClick={() => navigate("/")}> <FaHome /> Home</button>
+          <button> <FaBook /> Courses</button>
+        </nav>
+        <button className="logout-btn" onClick={logoutUser}><FaSignOutAlt /> Logout</button>
+      </aside>
+
+      <main className="dashboard-main">
+        <header className="dashboard-header">
+          <button className="menu-btn" onClick={() => setSidebarOpen(true)}>
+            <FaBars />
+          </button>
+          <img src={logo} alt="Logo" className="dashboard-logo" onClick={() => navigate("/")} />
+        </header>
+
+        <h2 className="dashboard-greeting">{greeting}, {userData?.firstName}!</h2>
+
+        <div className="courses-container">
+          <div className="course-card"><h3>Basic Quran Reading</h3><p>Learn proper pronunciation.</p></div>
+          <div className="course-card"><h3>Tajweed Course</h3><p>Master Tajweed rules.</p></div>
+          <div className="course-card"><h3>Quran Memorization</h3><p>Start your journey to memorization.</p></div>
         </div>
 
-        {/* Right: Logo (Click to Go Home) */}
-        <img
-         src={logo}
-          alt="Logo"
-          className="dashboard-logo"
-          onClick={() => navigate("/")}
-        />
-
-        {/* Profile Dropdown Menu */}
-        {menuOpen && (
-          <div className="profile-menu">
-            <button className="close-menu" onClick={() => setMenuOpen(false)}>×</button>
-            <p className="user-name">{userData?.firstName} {userData?.lastName}</p>
-            <p className="user-email">{userData?.email}</p>
-            <button className="logout-btn" onClick={logoutUser}>Logout</button>
-          </div>
-        )}
-      </header>
-
-      {/* Greeting */}
-      <h2 className="greeting">{greeting}, {userData?.firstName}!</h2>
-
-      {/* Courses Section */}
-      <div className="courses-container">
-        <div className="course-card">
-          
-          <h3>Basic Quran Reading</h3>
-          <p>Learn to read the Quran with correct pronunciation.</p>
-        </div>
-
-        <div className="course-card">
-         
-          <h3>Tajweed Course</h3>
-          <p>Enhance your Quran recitation with proper Tajweed rules.</p>
-        </div>
-
-        <div className="course-card">
-        
-          <h3>Quran Memorization</h3>
-          <p>Start your journey to memorizing the Quran with expert guidance.</p>
-        </div>
-      </div>
-      <ReactRecorder />
-      {/* Footer */}
-    
+        <br></br><br></br>
+        <ReactRecorder />
+      </main>
     </div>
   );
 }
 
-export default Userdash;
+export default UserDashboard;

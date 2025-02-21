@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #eef2ff, #cbd5e1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .chat-container {
+    width: 400px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Header Styles */
+  .chat-header {
+    background: linear-gradient(to right, #4a90e2, #3b82f6);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .chat-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .chat-header span {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  
+  /* Chat Messages */
+  .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    max-width: 75%;
+    padding: 12px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sent {
+    background: #3b82f6;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .received {
+    background: #e5e7eb;
+    color: black;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+  }
+  
+  /* Audio Messages */
+  .audio-message {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+  }
+  
+  .audio-message audio {
+    width: 150px;
+    height: 30px;
+  }
+  
+  /* Input Area */
+  .chat-input {
+    display: flex;
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #ddd;
+  }
+  
+  .chat-input textarea {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    background: #f3f4f6;
+  }
+  
+  .chat-input button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .chat-input button:hover {
+    background: #2563eb;
+  }
+  

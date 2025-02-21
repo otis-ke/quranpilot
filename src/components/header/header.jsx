@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/Qp-logo.webp";
 
 const Header = () => {
@@ -29,13 +30,16 @@ const Header = () => {
 
   const logoStyle = {
     height: "50px",
+    cursor: "pointer", // Add pointer cursor for better UX
   };
 
   return (
     <>
       <header style={headerStyle}>
         <div>
-          <img src={logo} alt="Qp Logo" style={logoStyle} />
+          <Link to="/">
+            <img src={logo} alt="Qp Logo" style={logoStyle} />
+          </Link>
         </div>
       </header>
       {/* Spacer div to prevent content from being hidden under the fixed header */}

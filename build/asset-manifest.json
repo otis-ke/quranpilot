@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/quranpilot/static/css/main.3d810d35.css",
-    "main.js": "/quranpilot/static/js/main.147f775f.js",
+    "main.css": "/quranpilot/static/css/main.7b663184.css",
+    "main.js": "/quranpilot/static/js/main.4ff98e4f.js",
     "static/js/453.6f4c6942.chunk.js": "/quranpilot/static/js/453.6f4c6942.chunk.js",
     "static/media/mosque2.jpg": "/quranpilot/static/media/mosque2.df16ca86c1943d5131af.jpg",
     "static/media/Quran.webp": "/quranpilot/static/media/Quran.0dc499217ab0d70c457a.webp",
@@ -23,12 +23,12 @@
     "static/media/words01.webp": "/quranpilot/static/media/words01.a81cbbe2f98d333ac63c.webp",
     "static/media/record4.webp": "/quranpilot/static/media/record4.baa56174d3eaef17da8e.webp",
     "index.html": "/quranpilot/index.html",
-    "main.3d810d35.css.map": "/quranpilot/static/css/main.3d810d35.css.map",
-    "main.147f775f.js.map": "/quranpilot/static/js/main.147f775f.js.map",
+    "main.7b663184.css.map": "/quranpilot/static/css/main.7b663184.css.map",
+    "main.4ff98e4f.js.map": "/quranpilot/static/js/main.4ff98e4f.js.map",
     "453.6f4c6942.chunk.js.map": "/quranpilot/static/js/453.6f4c6942.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d810d35.css",
-    "static/js/main.147f775f.js"
+    "static/css/main.7b663184.css",
+    "static/js/main.4ff98e4f.js"
   ]
 }
