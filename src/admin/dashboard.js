@@ -14,6 +14,13 @@ const Dashboard = () => {
     setUserData(storedUserData);
   }, []);
 
+  // Redirect to messages if no specific dashboard sub-route is provided
+  useEffect(() => {
+    if (location.pathname === "/dashboard") {
+      navigate("/dashboard/messages");
+    }
+  }, [location.pathname, navigate]);
+
   const logoutUser = useCallback(() => {
     localStorage.removeItem("userData");
     navigate("/Adminlogin", { state: { message: "You have been logged out" } });
