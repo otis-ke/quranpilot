@@ -10,8 +10,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
-    background: linear-gradient(to bottom, #100380, #100380, #100380);
-    color: white;
+    background: whitesmoke;
+    color: rgb(0, 0, 0);
     width: 100%;
     height: 50px;
     position: fixed;
@@ -30,13 +30,13 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: white;
+    color: rgb(5, 0, 0);
   }
   
   .side-menu {
-    background: linear-gradient(to bottom, #100380, #103101, #b3d9ff);
+    background: linear-gradient(to bottom, #d1d1d1, #b7b9b5, #b3d9ff);
 
-    color: white;
+    color: rgb(1, 0, 31);
     width: 250px;
     transition: width 0.3s ease;
     overflow: hidden;
@@ -58,15 +58,16 @@
   .user-profile {
     text-align: center;
     padding: 20px;
-    border-bottom: 1px solid #34495e;
+    border-bottom: 1px solid #000000;
     width: 100%;
+    color: #010a1b;
   }
   
   .profile-circle {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #3498db;
+    background: #1f2325;
     color: white;
     display: flex;
     align-items: center;
@@ -82,7 +83,7 @@
   
   .user-email {
     font-size: 14px;
-    color: #ecf0f1;
+    color: #012933;
   }
   
   .side-menu ul {
@@ -101,11 +102,11 @@
   }
   
   .side-menu ul li:hover {
-    background-color: #34495e;
+    background-color: #303cee;
   }
   
   .side-menu ul li.menu-item-active {
-    background-color: #2980b9;
+    background-color: #ffffff;
   }
   
   .side-menu ul li svg {

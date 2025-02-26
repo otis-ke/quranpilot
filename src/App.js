@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/home';
-import Adminlogin from '../src/admin/adminlogin';
+import Adminlogin from './admin/adminlogin';
 import Dashboard from './admin/dashboard';
 import Login from './pages/login/login';
 import Userdash from './pages/users/userdash';
@@ -10,6 +10,7 @@ import Messages from "./admin/pages/messages";
 import Notifications from "./admin/pages/notification";
 import Payments from "./admin/pages/payments";
 import Students from "./admin/pages/students";
+import Overview from "./admin/pages/overview";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="overview" element={<Overview />} />
           <Route path="messages" element={<Messages />} />
           <Route path="payments" element={<Payments />} />
           <Route path="students" element={<Students />} />

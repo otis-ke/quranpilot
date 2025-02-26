@@ -14,10 +14,10 @@ const Dashboard = () => {
     setUserData(storedUserData);
   }, []);
 
-  // Redirect to messages if no specific dashboard sub-route is provided
+  // Redirect to overview if no specific dashboard sub-route is provided
   useEffect(() => {
     if (location.pathname === "/dashboard") {
-      navigate("/dashboard/messages");
+      navigate("/dashboard/overview");
     }
   }, [location.pathname, navigate]);
 
@@ -34,6 +34,7 @@ const Dashboard = () => {
           <FiMenu size={24} />
         </button>
         <h1 className="header-title">
+          {location.pathname === "/dashboard/overview" && "Overview"}
           {location.pathname === "/dashboard/messages" && "Messages"}
           {location.pathname === "/dashboard/payments" && "Payments"}
           {location.pathname === "/dashboard/students" && "Students"}
@@ -50,17 +51,35 @@ const Dashboard = () => {
         </div>
 
         <ul>
-          <li onClick={() => navigate("/dashboard/messages")} className={location.pathname === "/dashboard/messages" ? "menu-item-active" : ""}>
+          <li
+            onClick={() => navigate("/dashboard/overview")}
+            className={location.pathname === "/dashboard/overview" ? "menu-item-active" : ""}
+          >
+            <FiHome size={20} /> Overview
+          </li>
+          <li
+            onClick={() => navigate("/dashboard/messages")}
+            className={location.pathname === "/dashboard/messages" ? "menu-item-active" : ""}
+          >
             <FiHome size={20} /> Messages
           </li>
-          <li onClick={() => navigate("/dashboard/payments")} className={location.pathname === "/dashboard/payments" ? "menu-item-active" : ""}>
+          <li
+            onClick={() => navigate("/dashboard/payments")}
+            className={location.pathname === "/dashboard/payments" ? "menu-item-active" : ""}
+          >
             <FiDollarSign size={20} /> Payments
           </li>
-          <li onClick={() => navigate("/dashboard/students")} className={location.pathname === "/dashboard/students" ? "menu-item-active" : ""}>
+          <li
+            onClick={() => navigate("/dashboard/students")}
+            className={location.pathname === "/dashboard/students" ? "menu-item-active" : ""}
+          >
             <FiUser size={20} /> Students
           </li>
-          <li onClick={() => navigate("/dashboard/notifications")} className={location.pathname === "/dashboard/notifications" ? "menu-item-active" : ""}>
-            <FiBell size={20} /> Notifications
+          <li
+            onClick={() => navigate("/dashboard/notifications")}
+            className={location.pathname === "/dashboard/notifications" ? "menu-item-active" : ""}
+          >
+            <FiBell size={20} /> Account
           </li>
         </ul>
 
