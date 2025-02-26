@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quranpilot/static/css/main.fe57f115.css",
-    "main.js": "/quranpilot/static/js/main.fb4b200f.js",
+    "main.js": "/quranpilot/static/js/main.d96356e8.js",
     "static/js/453.6f4c6942.chunk.js": "/quranpilot/static/js/453.6f4c6942.chunk.js",
     "static/media/mosque2.jpg": "/quranpilot/static/media/mosque2.df16ca86c1943d5131af.jpg",
     "static/media/Quran.webp": "/quranpilot/static/media/Quran.0dc499217ab0d70c457a.webp",
@@ -24,11 +24,11 @@
     "static/media/record4.webp": "/quranpilot/static/media/record4.baa56174d3eaef17da8e.webp",
     "index.html": "/quranpilot/index.html",
     "main.fe57f115.css.map": "/quranpilot/static/css/main.fe57f115.css.map",
-    "main.fb4b200f.js.map": "/quranpilot/static/js/main.fb4b200f.js.map",
+    "main.d96356e8.js.map": "/quranpilot/static/js/main.d96356e8.js.map",
     "453.6f4c6942.chunk.js.map": "/quranpilot/static/js/453.6f4c6942.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe57f115.css",
-    "static/js/main.fb4b200f.js"
+    "static/js/main.d96356e8.js"
   ]
 }

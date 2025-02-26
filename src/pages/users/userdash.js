@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaBars, FaTimes, FaSignOutAlt, FaBook, FaHome } from "react-icons/fa";
+import { FaBars, FaTimes, FaSignOutAlt, FaBook, FaHome, FaCreditCard, FaUser } from "react-icons/fa";
 import "./user.css";
 import ReactRecorder from "../../components/ReactRecorder";
 import logo from "../../components/assets/Qp-logo.webp";
@@ -30,6 +30,14 @@ function UserDashboard() {
     }
   }, []);
 
+  // Helper function for navigation that collapses sidebar on small devices
+  const handleNavigation = (path) => {
+    navigate(path);
+    if (window.innerWidth <= 768) { // adjust the threshold as needed
+      setSidebarOpen(false);
+    }
+  };
+
   return (
     <div className="dashboard-container">
       <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
@@ -42,10 +50,22 @@ function UserDashboard() {
           <p className="email">{userData?.email}</p>
         </div>
         <nav className="sidebar-nav">
-          <button onClick={() => navigate("/")}> <FaHome /> Home</button>
-          <button> <FaBook /> Courses</button>
+          <button onClick={() => handleNavigation("/")}>
+            <FaHome /> Home
+          </button>
+          <button onClick={() => handleNavigation("/courses")}>
+            <FaBook /> Courses
+          </button>
+          <button onClick={() => handleNavigation("/payment")}>
+            <FaCreditCard /> Payment
+          </button>
+          <button onClick={() => handleNavigation("/account")}>
+            <FaUser /> Account
+          </button>
         </nav>
-        <button className="logout-btn" onClick={logoutUser}><FaSignOutAlt /> Logout</button>
+        <button className="logout-btn" onClick={logoutUser}>
+          <FaSignOutAlt /> Logout
+        </button>
       </aside>
 
       <main className="dashboard-main">
@@ -53,18 +73,32 @@ function UserDashboard() {
           <button className="menu-btn" onClick={() => setSidebarOpen(true)}>
             <FaBars />
           </button>
-          <img src={logo} alt="Logo" className="dashboard-logo" onClick={() => navigate("/")} />
+          <img 
+            src={logo} 
+            alt="Logo" 
+            className="dashboard-logo" 
+            onClick={() => handleNavigation("/")} 
+          />
         </header>
 
         <h2 className="dashboard-greeting">{greeting}, {userData?.firstName}!</h2>
 
         <div className="courses-container">
-          <div className="course-card"><h3>Basic Quran Reading</h3><p>Learn proper pronunciation.</p></div>
-          <div className="course-card"><h3>Tajweed Course</h3><p>Master Tajweed rules.</p></div>
-          <div className="course-card"><h3>Quran Memorization</h3><p>Start your journey to memorization.</p></div>
+          <div className="course-card">
+            <h3>Basic Quran Reading</h3>
+            <p>Learn proper pronunciation.</p>
+          </div>
+          <div className="course-card">
+            <h3>Tajweed Course</h3>
+            <p>Master Tajweed rules.</p>
+          </div>
+          <div className="course-card">
+            <h3>Quran Memorization</h3>
+            <p>Start your journey to memorization.</p>
+          </div>
         </div>
 
-        <br></br><br></br>
+        <br /><br />
         <ReactRecorder />
       </main>
     </div>

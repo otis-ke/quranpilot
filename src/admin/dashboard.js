@@ -26,6 +26,14 @@ const Dashboard = () => {
     navigate("/Adminlogin", { state: { message: "You have been logged out" } });
   }, [navigate]);
 
+  // Function to handle navigation and collapse the sidebar on small devices
+  const handleNavigation = (path) => {
+    navigate(path);
+    if (window.innerWidth <= 768) { // adjust threshold as needed
+      setIsSidebarOpen(false);
+    }
+  };
+
   return (
     <div className="dashboard-wrapper">
       {/* Header */}
@@ -52,31 +60,31 @@ const Dashboard = () => {
 
         <ul>
           <li
-            onClick={() => navigate("/dashboard/overview")}
+            onClick={() => handleNavigation("/dashboard/overview")}
             className={location.pathname === "/dashboard/overview" ? "menu-item-active" : ""}
           >
             <FiHome size={20} /> Overview
           </li>
           <li
-            onClick={() => navigate("/dashboard/messages")}
+            onClick={() => handleNavigation("/dashboard/messages")}
             className={location.pathname === "/dashboard/messages" ? "menu-item-active" : ""}
           >
             <FiHome size={20} /> Messages
           </li>
           <li
-            onClick={() => navigate("/dashboard/payments")}
+            onClick={() => handleNavigation("/dashboard/payments")}
             className={location.pathname === "/dashboard/payments" ? "menu-item-active" : ""}
           >
             <FiDollarSign size={20} /> Payments
           </li>
           <li
-            onClick={() => navigate("/dashboard/students")}
+            onClick={() => handleNavigation("/dashboard/students")}
             className={location.pathname === "/dashboard/students" ? "menu-item-active" : ""}
           >
             <FiUser size={20} /> Students
           </li>
           <li
-            onClick={() => navigate("/dashboard/notifications")}
+            onClick={() => handleNavigation("/dashboard/notifications")}
             className={location.pathname === "/dashboard/notifications" ? "menu-item-active" : ""}
           >
             <FiBell size={20} /> Account
